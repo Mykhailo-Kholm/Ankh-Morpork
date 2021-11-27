@@ -8,7 +8,7 @@ namespace Ankh_Morpork_game.Abstract
 {
     interface INPC
     {
-        Guid Id { get; set; }
+        protected Guid Id { get; set; }
         string Name { get; set; }
     }
 }

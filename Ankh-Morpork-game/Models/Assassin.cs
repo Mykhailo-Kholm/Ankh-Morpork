@@ -8,9 +8,23 @@ using Ankh_Morpork_game.Abstract.Interfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Assassin : INPC, IAssassin
+    class Assassin : IAssassin
     {
-        public (int, int) rewardRange { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool Status { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private Guid _id;
+
+        Guid INPC.Id
+        {
+            get => _id;
+            set => _id = value;
+        }
+
+        public string Name { get; set; }
+        public float MinReward { get; set; }
+        public float MaxReward { get; set; }
+        public bool Status { get; set; }
+        public void Kill(Player player)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

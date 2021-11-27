@@ -9,6 +9,6 @@ namespace Ankh_Morpork_game.Abstract
 {
     interface IGuild
     {
-        List<INPC> GeneratorOfNPC()
+        List<INPC> GeneratorOfNPC();
     }
 }

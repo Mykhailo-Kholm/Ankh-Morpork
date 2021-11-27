@@ -8,9 +8,9 @@ using Ankh_Morpork_game.Models;
 
 namespace Ankh_Morpork_game.Abstract.Interfaces
 {
-    interface IThief
+    interface IThief:INPC
     {
-        const int DefaultFee = 10;
+        const float DefaultFee = 10f;
         void TakeFee(Player player);
     }
 }

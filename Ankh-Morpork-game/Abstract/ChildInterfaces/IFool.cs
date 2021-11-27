@@ -9,7 +9,7 @@ namespace Ankh_Morpork_game.Abstract.Interfaces
 {
     interface IFool : INPC
     {
-        double Salary { get; set; }
+        float Salary { get; set; }
         void GiveJob(Player player);
     }
 }

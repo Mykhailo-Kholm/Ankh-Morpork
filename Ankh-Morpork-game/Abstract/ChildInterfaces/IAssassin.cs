@@ -9,8 +9,8 @@ namespace Ankh_Morpork_game.Abstract.Interfaces
 {
     interface IAssassin:INPC
     {
-        int MinReward { get; set; }
-        int MaxReward { get; set; }
+        float MinReward { get; set; }
+        float MaxReward { get; set; }
         bool Status { get; set; }
         void Kill(Player player);
     }
