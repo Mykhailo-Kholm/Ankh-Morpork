@@ -12,9 +12,9 @@ namespace Ankh_Morpork_game.Guilds
     {
         public List<Thief> GeneratorOfNPC()
         {
-            var Thieves = new List<Thief>(1);
-            Thieves.Add(new Thief("Yanukovich"));
-            return Thieves;
+            var thieves = new List<Thief>(1);
+            thieves.Add(new Thief("Yanukovich"));
+            return thieves;
         }
     }
 }

@@ -35,7 +35,6 @@ namespace Ankh_Morpork_game.Models
                 player.IsAlive = false;
                 Console.WriteLine("You were robbed");
             }
-
         }
 
     }

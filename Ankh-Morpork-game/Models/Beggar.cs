@@ -26,10 +26,17 @@ namespace Ankh_Morpork_game.Models
         {
             Name = name;
             Alms = alms;
+            Speech = $"Give me {Alms} or I will chase you to death";
         }
         public void TakeAlms(Player player)
         {
-            throw new NotImplementedException();
+            if (player.Choice.ToLower() != "skip" && player.GiveMoney(Alms))
+                Console.WriteLine("You can go");
+            else
+            {
+                player.IsAlive = false;
+                Console.WriteLine("You was chased to death");
+            }
         }
     }
 }
