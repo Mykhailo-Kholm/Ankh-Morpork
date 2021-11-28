@@ -15,15 +15,29 @@ namespace Ankh_Morpork_game.Models
         Guid INPC.Id
         {
             get => _id;
-            set => _id = value;
+            set => _id = Guid.NewGuid();
         }
 
         public string Name { get; set; }
         public string Speech { get; set; }
         public float Salary { get; set; }
+
+        public Fool(string name, float salary)
+        {
+            Name = name;
+            Speech = $@"Hi, my friend! Do you want to earn {Salary} $?";
+            Salary = salary;
+        }
         public void GiveJob(Player player)
         {
-            throw new NotImplementedException();
+            if (player.Choice.ToLower() != "skip")
+            {
+                player.EarnMoney(Salary);
+            }
+            else
+            {
+                Console.WriteLine("See you later!");
+            }
         }
     }
 }

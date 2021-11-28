@@ -25,7 +25,6 @@ namespace Ankh_Morpork_game.Guilds
             beggars.Add(new Beggar("People Who Need Tuppence For A Cup Of Tea", 0.02f));
             beggars.Add(new Beggar("People With Placards Saying \"Why lie ? I need a beer.\"", 0));
             return beggars;
-
         }
     }
 }
