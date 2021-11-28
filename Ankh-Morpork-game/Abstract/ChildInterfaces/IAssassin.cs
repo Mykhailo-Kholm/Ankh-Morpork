@@ -11,7 +11,7 @@ namespace Ankh_Morpork_game.Abstract.Interfaces
     {
         float MinReward { get; set; }
         float MaxReward { get; set; }
-        bool Status { get; set; }
+        bool IsOccupied { get; set; }
         void Kill(Player player);
     }
 }

@@ -8,23 +8,32 @@ namespace Ankh_Morpork_game.Models
 {
     class Player
     {
-        public float AMountOfMoney { get; private set; } = 100;
-        public bool IsAlive { get; set; }
+        public float AmountOfMoney { get; private set; } = 100;
+        public bool IsAlive { get; set; } = true;
         public string Name { get; private set; }
+        public string Choice { get; set; }
 
         public Player(string name)
         {
             Name = name;
         }
 
-        void GiveMoney(float amount)
+        public bool GiveMoney(float amount)
         {
-
+            if (amount <= AmountOfMoney)
+            {
+                AmountOfMoney -= amount;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        void EarnMoney(float amount)
+        public void EarnMoney(float amount)
         {
-
+            AmountOfMoney += amount;
         }
     }
 }

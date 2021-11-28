@@ -7,8 +7,8 @@ using Ankh_Morpork_game.Abstract.Interfaces;
 
 namespace Ankh_Morpork_game.Abstract
 {
-    interface IGuild
+    interface IGuild<T>
     {
-        List<INPC> GeneratorOfNPC();
+        List<T> GeneratorOfNPC();
     }
 }
