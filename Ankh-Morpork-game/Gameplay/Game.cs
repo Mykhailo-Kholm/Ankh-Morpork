@@ -13,19 +13,19 @@ namespace Ankh_Morpork_game.Gameplay
     class Game
     {
         private readonly Player _player;
-        private readonly AssassinsGuildServices _assassinsGuildServices;
-        private readonly GuildServices<BeggarsGuild, Beggar> _beggarsGuildServices;
-        private readonly GuildServices<FoolsGuild, Fool> _foolsGuildServices;
-        private readonly GuildServices<ThievesGuild, Thief> _thievesGuildServices;
+        private readonly AssassinsGuildGuildServices _assassinsGuildGuildServices;
+        private readonly GuildGuildServices<BeggarsGuild, Beggar> _beggarsGuildGuildServices;
+        private readonly GuildGuildServices<FoolsGuild, Fool> _foolsGuildGuildServices;
+        private readonly GuildGuildServices<ThievesGuild, Thief> _thievesGuildGuildServices;
 
 
         public Game(string nameOfPlayer)
         {
             _player = new Player(nameOfPlayer);
-            _assassinsGuildServices = new AssassinsGuildServices();
-            _beggarsGuildServices = new GuildServices<BeggarsGuild, Beggar>();
-            _foolsGuildServices = new GuildServices<FoolsGuild, Fool>();
-            _thievesGuildServices = new GuildServices<ThievesGuild, Thief>();
+            _assassinsGuildGuildServices = new AssassinsGuildGuildServices();
+            _beggarsGuildGuildServices = new GuildGuildServices<BeggarsGuild, Beggar>();
+            _foolsGuildGuildServices = new GuildGuildServices<FoolsGuild, Fool>();
+            _thievesGuildGuildServices = new GuildGuildServices<ThievesGuild, Thief>();
         }
 
         public void GameRules()
@@ -37,7 +37,7 @@ where the fertile loam of the Sto Plains meets the Circle Sea. This, naturally, 
 The central city divides more or less into Ankh (the posh part) and Morpork (the humble part, which includes the slum area known as 'the Shades'), which are separated by the River Ankh.
 It can be dangerous to walk the streets. So watch out!
 You gets 100 AM$ on balance.
-Than randomly you will meet one of the four guilds over and over again.
+Than randomly you will meet one of the four guilds: Assassins, Thieves, Fools and Beggars.
 Player can select an action between 2 options (play or skip) depending on the guild type.
 Game is over if the Player got killed, chased to death by the beggar or out of money.
 ");
@@ -49,19 +49,19 @@ Game is over if the Player got killed, chased to death by the beggar or out of m
                 Random rnd = new Random();
                 switch (rnd.Next(1,4))
                 {
-                    case 1: _assassinsGuildServices.InteractWithPlayer(_player);
+                    case 1: _assassinsGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
                         break;
                     case 2:
-                        _beggarsGuildServices.InteractWithPlayer(_player);
+                        _beggarsGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
                         break;
                     case 3:
-                        _foolsGuildServices.InteractWithPlayer(_player);
+                        _foolsGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
                         break;
                     case 4:
-                        _thievesGuildServices.InteractWithPlayer(_player);
+                        _thievesGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
                         break;
                 }

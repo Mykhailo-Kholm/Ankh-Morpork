@@ -10,7 +10,7 @@ using Ankh_Morpork_game.Models;
 
 namespace Ankh_Morpork_game.Abstract.HeadInterfaces
 {
-    public class GuildServices<TGuild,TNpc>:AbstractServices<TGuild,TNpc> where TGuild : IGuild<TNpc>, new() 
+    public class GuildGuildServices<TGuild,TNpc>:AbstractGuildServices<TGuild,TNpc> where TGuild : IGuild<TNpc>, new() 
                                                                         where TNpc : INPC,IFee
     {
         public override void InteractWithPlayer(Player player)

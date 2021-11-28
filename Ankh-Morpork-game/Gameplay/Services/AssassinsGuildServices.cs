@@ -10,7 +10,7 @@ using Ankh_Morpork_game.Models;
 
 namespace Ankh_Morpork_game.Gameplay.Services
 {
-    public class AssassinsGuildServices:AbstractServices<AssassinsGuild, Assassin>
+    public class AssassinsGuildGuildServices:AbstractGuildServices<AssassinsGuild, Assassin>
     {
         public override void InteractWithPlayer(Player player)
         {

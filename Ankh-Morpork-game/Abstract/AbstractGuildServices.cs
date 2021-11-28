@@ -9,14 +9,14 @@ using Ankh_Morpork_game.Models;
 
 namespace Ankh_Morpork_game.Gameplay.Services
 {
-    public abstract class AbstractServices<TGuild,TNpc> where TGuild : IGuild<TNpc>, new()
+    public abstract class AbstractGuildServices<TGuild,TNpc> where TGuild : IGuild<TNpc>, new()
                                                        where TNpc : INPC  
     {
         protected TGuild Guild;
         protected List<TNpc> ListOfNPC;
         protected Random Rnd;
 
-        public AbstractServices()
+        public AbstractGuildServices()
         {
             Rnd = new Random();
             Guild = new TGuild();
