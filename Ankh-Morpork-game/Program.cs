@@ -11,6 +11,7 @@ namespace Ankh_Morpork_game
             Console.WriteLine("What is your name stranger?");
             string name = Console.ReadLine();
             Game game = new Game(name);
+            game.GameRules();
             game.StartGame();
             game.EndGame();
         }
