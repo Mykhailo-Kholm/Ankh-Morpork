@@ -3,42 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ankh_Morpork_game.Abstract.HeadInterfaces;
 using Ankh_Morpork_game.Gameplay.Services;
+using Ankh_Morpork_game.Guilds;
 using Ankh_Morpork_game.Models;
 
 namespace Ankh_Morpork_game.Gameplay
 {
     class Game
     {
-        private Player player;
-        private AssassinsGuildServices assassinsGuildServices = new AssassinsGuildServices();
-        private BeggarsGuildServices beggarsGuildServices = new BeggarsGuildServices();
-        private FoolsGuildServices foolsGuildServices = new FoolsGuildServices();
-        private ThievesGuildServices thievesGuildServices = new ThievesGuildServices();
+        private readonly Player _player;
+        private readonly AssassinsGuildServices _assassinsGuildServices;
+        private readonly GuildServices<BeggarsGuild, Beggar> _beggarsGuildServices;
+        private readonly GuildServices<FoolsGuild, Fool> _foolsGuildServices;
+        private readonly GuildServices<ThievesGuild, Thief> _thievesGuildServices;
 
-        public void StartGame(string nameOfPlayer)
+
+        public Game(string nameOfPlayer)
         {
-            player = new Player(nameOfPlayer);
-
+            _player = new Player(nameOfPlayer);
+            _assassinsGuildServices = new AssassinsGuildServices();
+            _beggarsGuildServices = new GuildServices<BeggarsGuild, Beggar>();
+            _foolsGuildServices = new GuildServices<FoolsGuild, Fool>();
+            _thievesGuildServices = new GuildServices<ThievesGuild, Thief>();
+        }
+        public void StartGame()
+        {
             do
             {
                 Random rnd = new Random();
                 switch (rnd.Next(1,4))
                 {
-                    case 1: assassinsGuildServices.InteractWithPlayer(player);
+                    case 1: _assassinsGuildServices.InteractWithPlayer(_player);
+                        Console.WriteLine("--------------------------------------");
                         break;
                     case 2:
-                        beggarsGuildServices.InteractWithPlayer(player);
+                        _beggarsGuildServices.InteractWithPlayer(_player);
+                        Console.WriteLine("--------------------------------------");
                         break;
                     case 3:
-                        foolsGuildServices.InteractWithPlayer(player);
+                        _foolsGuildServices.InteractWithPlayer(_player);
+                        Console.WriteLine("--------------------------------------");
                         break;
                     case 4:
-                        thievesGuildServices.InteractWithPlayer(player);
+                        _thievesGuildServices.InteractWithPlayer(_player);
+                        Console.WriteLine("--------------------------------------");
                         break;
                 }
 
-            } while (player.IsAlive);
+            } while (_player.IsAlive);
         }
         public void EndGame()
         {

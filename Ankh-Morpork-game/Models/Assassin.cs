@@ -8,7 +8,7 @@ using Ankh_Morpork_game.Abstract.Interfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Assassin : IAssassin
+    public class Assassin : IAssassin
     {
         private Guid _id;
 

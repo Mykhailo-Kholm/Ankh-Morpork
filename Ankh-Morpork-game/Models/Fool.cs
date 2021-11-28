@@ -8,7 +8,7 @@ using Ankh_Morpork_game.Abstract.Interfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Fool:IFool
+    public class Fool:IFool
     {
         private Guid _id;
 
@@ -28,7 +28,7 @@ namespace Ankh_Morpork_game.Models
             Salary = salary;
             Speech = $@"Hi, my friend! Do you want to earn {Salary} $?";
         }
-        public void GiveJob(Player player)
+        public void GetFee(Player player)
         {
             bool goNext = false;
             while (!goNext)

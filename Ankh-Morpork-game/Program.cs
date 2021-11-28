@@ -8,10 +8,10 @@ namespace Ankh_Morpork_game
     {
         static void Main(string[] args)
         {
-            Game game = new Game();
             Console.WriteLine("What is your name stranger?");
             string name = Console.ReadLine();
-            game.StartGame(name);
+            Game game = new Game(name);
+            game.StartGame();
             game.EndGame();
         }
     }

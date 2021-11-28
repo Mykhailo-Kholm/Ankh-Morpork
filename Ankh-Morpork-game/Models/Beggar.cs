@@ -26,9 +26,12 @@ namespace Ankh_Morpork_game.Models
         {
             Name = name;
             Alms = alms;
-            Speech = $"Give me {Alms} or I will chase you to death";
+            if (alms != 0)
+                Speech = $"Give me {Alms} or I will chase you to death";
+            else
+                Speech = "Why lie? I need a beer.";
         }
-        public void TakeAlms(Player player)
+        public void GetFee(Player player)
         {
             bool goNext = false;
             while (!goNext)

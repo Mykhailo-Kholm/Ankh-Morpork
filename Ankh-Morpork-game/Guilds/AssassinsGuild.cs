@@ -8,7 +8,7 @@ using Ankh_Morpork_game.Models;
 
 namespace Ankh_Morpork_game.Guilds
 {
-    class AssassinsGuild:IGuild<Assassin>
+    public class AssassinsGuild:IGuild<Assassin>
     {
         public string proposition { get; private set; } = "Someone wants to kill you. Do you want to stay alive? Let's sign a contract! Enter your amount or skip:";
         public List<Assassin> GeneratorOfNPC()
@@ -19,7 +19,7 @@ namespace Ankh_Morpork_game.Guilds
             {
                 bool isOccupied = rnd.Next(2) == 1;
                 assassins.Add(new Assassin($"Assassin {i}", 
-                    rnd.Next(1,15),
+                    rnd.Next(7,15),
                     rnd.Next(16,30),
                     isOccupied
                     ));
@@ -42,24 +42,21 @@ namespace Ankh_Morpork_game.Guilds
 
                     if (float.TryParse(player.Choice, out payment))
                     {
-                        bool isKill = false;
-                        foreach (var assassin in assassins)
+                        try
                         {
-                            if (!assassin.IsOccupied && assassin.MinReward <= payment && payment <= assassin.MaxReward)
+                            var freeAssassins = assassins.Where(a =>
+                                !a.IsOccupied && a.MinReward <= payment && payment <= a.MaxReward);
+                            if (player.GiveMoney(payment))
                             {
-                                if (player.GiveMoney(payment))
-                                {
-                                    Console.WriteLine("Contract is created! You can go!");
-                                    isKill = false;
-                                    break;
-                                }
+                                Console.WriteLine($"{freeAssassins.First().Name} take the contract");
                             }
-
-                            isKill = true;
+                        }
+                        catch (Exception)
+                        {
+                            Console.WriteLine("No one can take the contract");
+                            assassins[0].Kill(player);
                         }
 
-                        if (isKill)
-                            assassins[0].Kill(player);
                         return;
                     }
                     Console.WriteLine("Please, enter valid answer!(number or \"skip\"");

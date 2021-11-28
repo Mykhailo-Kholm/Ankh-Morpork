@@ -26,7 +26,7 @@ namespace Ankh_Morpork_game.Models
             Name = name;
         }
 
-        public void TakeFee(Player player) 
+        public void GetFee(Player player) 
         {
             bool goNext = false;
             while (!goNext)
