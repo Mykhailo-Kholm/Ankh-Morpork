@@ -13,6 +13,7 @@ namespace Ankh_Morpork_game
             game.GameRules();
             game.StartGame();
             game.EndGame();
+            Console.ReadKey();
         }
     }
 }
