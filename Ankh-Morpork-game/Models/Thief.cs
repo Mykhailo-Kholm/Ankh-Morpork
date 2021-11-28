@@ -15,13 +15,27 @@ namespace Ankh_Morpork_game.Models
         Guid INPC.Id
         {
             get => _id;
-            set => _id = value;
+            set => _id = Guid.NewGuid();
         }
 
         public string Name { get; set; }
-        public void TakeFee(Player player)
+        public string Speech { get; set; } = "Pay the fee, otherwise you will be robbed next time";
+
+        public Thief(string name)
         {
-            throw new NotImplementedException();
+            Name = name;
+        }
+
+        public void TakeFee(Player player) 
+        {
+            if(player.Choice.ToLower() != "skip" && player.GiveMoney(IThief.DefaultFee))
+                Console.WriteLine("You can go");
+            else
+            {
+                player.IsAlive = false;
+                Console.WriteLine("You were robbed");
+            }
+
         }
 
     }

@@ -10,5 +10,6 @@ namespace Ankh_Morpork_game.Abstract
     {
         protected Guid Id { get; set; }
         string Name { get; set; }
+        string Speech { get; set; }
     }
 }

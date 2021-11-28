@@ -25,10 +25,7 @@ namespace Ankh_Morpork_game.Models
                 AmountOfMoney -= amount;
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         public void EarnMoney(float amount)

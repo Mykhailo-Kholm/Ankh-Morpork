@@ -19,6 +19,7 @@ namespace Ankh_Morpork_game.Models
         }
 
         public string Name { get; set; }
+        public string Speech { get; set; }
         public float MinReward { get; set; }
         public float MaxReward { get; set; }
         public bool IsOccupied { get; set; }
@@ -29,6 +30,7 @@ namespace Ankh_Morpork_game.Models
             MinReward = minReward;
             MaxReward = maxReward;
             IsOccupied = isOccupied;
+            Speech = $"{Name} killed you";
         }
         public void Kill(Player player)
         {

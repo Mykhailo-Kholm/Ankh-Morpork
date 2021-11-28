@@ -15,11 +15,18 @@ namespace Ankh_Morpork_game.Models
         Guid INPC.Id
         {
             get => _id;
-            set => _id = value;
+            set => _id = Guid.NewGuid();
         }
 
         public string Name { get; set; }
+        public string Speech { get; set; }
         public float Alms { get; set; }
+
+        public Beggar(string name, float alms)
+        {
+            Name = name;
+            Alms = alms;
+        }
         public void TakeAlms(Player player)
         {
             throw new NotImplementedException();

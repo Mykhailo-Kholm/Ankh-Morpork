@@ -19,6 +19,7 @@ namespace Ankh_Morpork_game.Models
         }
 
         public string Name { get; set; }
+        public string Speech { get; set; }
         public float Salary { get; set; }
         public void GiveJob(Player player)
         {
