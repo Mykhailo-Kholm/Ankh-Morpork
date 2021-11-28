@@ -10,7 +10,7 @@ namespace Ankh_Morpork_game.Guilds
 {
     class AssassinsGuild:IGuild<Assassin>
     {
-        const string proposition = "Someone wants to kill you. Do you want to stay alive? Let's sign a contract! Enter your amount or skip:";
+        public string proposition { get; private set; } = "Someone wants to kill you. Do you want to stay alive? Let's sign a contract! Enter your amount or skip:";
         public List<Assassin> GeneratorOfNPC()
         {
             var assassins = new List<Assassin>(15);
@@ -29,13 +29,11 @@ namespace Ankh_Morpork_game.Guilds
 
         public void CreateContract(Player player, List<Assassin> assassins)
         {
-            Console.WriteLine(proposition);
             while (player.AmountOfMoney >= 0 )
             {
                 float payment = 0;
                 try
                 {
-                    player.Choice = Console.ReadLine();
                     if (String.Equals(player.Choice.ToLower(), "skip"))
                     {
                         assassins[0].Kill(player);
@@ -65,7 +63,7 @@ namespace Ankh_Morpork_game.Guilds
                         return;
                     }
                     Console.WriteLine("Please, enter valid answer!(number or \"skip\"");
-
+                    player.Choice = Console.ReadLine();
                 }
                 catch (NullReferenceException e)
                 {

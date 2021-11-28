@@ -30,12 +30,22 @@ namespace Ankh_Morpork_game.Models
         }
         public void TakeAlms(Player player)
         {
-            if (player.Choice.ToLower() != "skip" && player.GiveMoney(Alms))
-                Console.WriteLine("You can go");
-            else
+            bool goNext = false;
+            while (!goNext)
             {
-                player.IsAlive = false;
-                Console.WriteLine("You was chased to death");
+                if (player.Choice.ToLower() == "play" && player.GiveMoney(Alms))
+                {
+                    Console.WriteLine("You can go!");
+                    break;
+                }
+                if(player.Choice.ToLower() == "skip")
+                {
+                    player.IsAlive = false;
+                    Console.WriteLine("You was chased to death");
+                    break;
+                }
+                Console.WriteLine("Please, Enter \"skip\" or \"play\"");
+                player.Choice = Console.ReadLine();
             }
         }
     }

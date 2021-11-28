@@ -28,12 +28,23 @@ namespace Ankh_Morpork_game.Models
 
         public void TakeFee(Player player) 
         {
-            if(player.Choice.ToLower() != "skip" && player.GiveMoney(IThief.DefaultFee))
-                Console.WriteLine("You can go");
-            else
+            bool goNext = false;
+            while (!goNext)
             {
-                player.IsAlive = false;
-                Console.WriteLine("You were robbed");
+                if (player.Choice.ToLower() == "play" && player.GiveMoney(IThief.DefaultFee))
+                {
+                    Console.WriteLine("You can go!");
+                    break;
+                }
+
+                if(player.Choice.ToLower() == "skip")
+                {
+                    player.IsAlive = false;
+                    Console.WriteLine("You were robbed");
+                    break;
+                }
+                Console.WriteLine("Please, Enter \"skip\" or \"play\"");
+                player.Choice = Console.ReadLine();
             }
         }
 

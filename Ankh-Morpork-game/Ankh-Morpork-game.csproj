@@ -6,8 +6,4 @@
     <RootNamespace>Ankh_Morpork_game</RootNamespace>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Gameplay\" />
-  </ItemGroup>
-
 </Project>

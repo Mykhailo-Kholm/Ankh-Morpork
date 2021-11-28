@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Player
+    public class Player
     {
         public float AmountOfMoney { get; private set; } = 100;
         public bool IsAlive { get; set; } = true;
@@ -23,8 +23,11 @@ namespace Ankh_Morpork_game.Models
             if (amount <= AmountOfMoney)
             {
                 AmountOfMoney -= amount;
+                Console.WriteLine($"You have {AmountOfMoney}");
                 return true;
             }
+            Console.WriteLine("You are Liar. You don't have this amount");
+            IsAlive = false;
             return false;
         }
 

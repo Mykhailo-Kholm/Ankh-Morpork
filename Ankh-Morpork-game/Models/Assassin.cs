@@ -35,6 +35,7 @@ namespace Ankh_Morpork_game.Models
         public void Kill(Player player)
         {
             player.IsAlive = false;
+            Console.WriteLine(Speech);
         }
     }
 }

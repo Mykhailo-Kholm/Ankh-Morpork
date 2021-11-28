@@ -25,19 +25,28 @@ namespace Ankh_Morpork_game.Models
         public Fool(string name, float salary)
         {
             Name = name;
-            Speech = $@"Hi, my friend! Do you want to earn {Salary} $?";
             Salary = salary;
+            Speech = $@"Hi, my friend! Do you want to earn {Salary} $?";
         }
         public void GiveJob(Player player)
         {
-            if (player.Choice.ToLower() != "skip")
+            bool goNext = false;
+            while (!goNext)
             {
-                player.EarnMoney(Salary);
+                if (player.Choice.ToLower() == "play")
+                {
+                    player.EarnMoney(Salary);
+                    break;
+                }
+                if (player.Choice.ToLower() == "skip")
+                {
+                    Console.WriteLine("See you later!");
+                    break;
+                }
+                Console.WriteLine("Please, Enter \"skip\" or \"play\"");
+                player.Choice = Console.ReadLine();
             }
-            else
-            {
-                Console.WriteLine("See you later!");
-            }
+
         }
     }
 }
