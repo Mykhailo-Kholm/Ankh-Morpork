@@ -1,6 +1,5 @@
-﻿using System;
-using Ankh_Morpork_game.Gameplay;
-using Ankh_Morpork_game.Models;
+﻿using Ankh_Morpork_game.Gameplay;
+using System;
 
 namespace Ankh_Morpork_game
 {
