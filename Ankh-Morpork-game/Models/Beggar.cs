@@ -23,7 +23,7 @@ namespace Ankh_Morpork_game.Models
             Name = name;
             Alms = alms;
             if (alms != 0)
-                Speech = $"Give me {Alms} or I will chase you to death";
+                Speech = @$"Give me {Alms} $ or I will chase you to death";
             else
                 Speech = "Why lie? I need a beer.";
         }

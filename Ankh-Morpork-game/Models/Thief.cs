@@ -15,7 +15,7 @@ namespace Ankh_Morpork_game.Models
         }
 
         public string Name { get; set; }
-        public string Speech { get; set; } = "Pay the fee, otherwise you will be robbed next time";
+        public string Speech { get; set; } = "Pay the fee - 10 bucks, otherwise you will be robbed next time";
 
         public Thief(string name)
         {
