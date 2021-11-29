@@ -30,6 +30,7 @@ namespace Ankh_Morpork_game.Models
         public void EarnMoney(float amount)
         {
             AmountOfMoney += amount;
+            Console.WriteLine($"You have {AmountOfMoney}");
         }
     }
 }
