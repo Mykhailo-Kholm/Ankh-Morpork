@@ -15,10 +15,7 @@ namespace Ankh_Morpork_game.Gameplay.Services
         {
             if (ThievesGuild.AcceptableNumberOfThefts != 0)
             {
-                Thief tempNpc = ListOfNPC[Rnd.Next(ListOfNPC.Count)];
-                Console.WriteLine(tempNpc.Speech);
-                player.Choice = Console.ReadLine();
-                tempNpc.GetFee(player);
+                base.InteractWithPlayer(player);
                 ThievesGuild.AcceptableNumberOfThefts--;
                 Console.WriteLine();
             }
