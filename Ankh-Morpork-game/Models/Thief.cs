@@ -36,7 +36,8 @@ namespace Ankh_Morpork_game.Models
                 if(player.Choice.ToLower() == "skip")
                 {
                     player.IsAlive = false;
-                    Console.WriteLine("You were robbed");
+                    Console.WriteLine($"You were robbed by {Name}");
+                    player.GiveMoney(player.AmountOfMoney);
                     break;
                 }
                 Console.WriteLine("Please, Enter \"skip\" or \"play\"");

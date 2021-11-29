@@ -43,7 +43,8 @@ Game is over if the Player got killed, chased to death by the beggar or out of m
             do
             {
                 Random rnd = new Random();
-                switch (rnd.Next(1,4))
+
+                switch (rnd.Next(1,5))
                 {
                     case 1: _assassinsGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
@@ -56,7 +57,7 @@ Game is over if the Player got killed, chased to death by the beggar or out of m
                         _foolsGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
                         break;
-                    case 4:
+                    default:
                         _thievesGuildGuildServices.InteractWithPlayer(_player);
                         Console.WriteLine("--------------------------------------");
                         break;

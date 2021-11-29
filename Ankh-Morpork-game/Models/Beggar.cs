@@ -40,7 +40,7 @@ namespace Ankh_Morpork_game.Models
                 if(player.Choice.ToLower() == "skip")
                 {
                     player.IsAlive = false;
-                    Console.WriteLine($"You was chased to death by {Name}");
+                    Console.WriteLine($"You was chased to death by {}");
                     break;
                 }
                 Console.WriteLine("Please, Enter \"skip\" or \"play\"");

@@ -48,7 +48,6 @@ namespace Ankh_Morpork_game.Guilds
                             Console.WriteLine($"{enumerable.First().Name} take the contract");
                             return;
                         }
-
                         Console.WriteLine("No one can take the contract");
                         assassins[0].Kill(player);
                         return;

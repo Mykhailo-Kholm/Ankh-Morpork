@@ -8,18 +8,20 @@ namespace Ankh_Morpork_game.Guilds
     {
         public List<Beggar> GeneratorOfNPC()
         {
-            var beggars = new List<Beggar>();
-            beggars.Add(new Beggar("Twitchers ", 3));
-            beggars.Add(new Beggar("Droolers ", 2));
-            beggars.Add(new Beggar("Dribblers ", 1)); 
-            beggars.Add(new Beggar("Mumblers ", 1));
-            beggars.Add(new Beggar("Mumblers ", 0.9f));
-            beggars.Add(new Beggar("Walking-Along-Shouters", 0.8f));
-            beggars.Add(new Beggar("Demanders of a Chip", 0.6f));
-            beggars.Add(new Beggar("People Who Call Other People Jimmy ", 0.5f));
-            beggars.Add(new Beggar("People Who Need Eightpence For A Meal", 0.08f));
-            beggars.Add(new Beggar("People Who Need Tuppence For A Cup Of Tea", 0.02f));
-            beggars.Add(new Beggar("People With Placards Saying \"Why lie ? I need a beer.\"", 0));
+            var beggars = new List<Beggar>(11)
+            {
+                new("Twitchers ", 3),
+                new("Droolers ", 2),
+                new("Dribblers ", 1),
+                new("Mumblers ", 1),
+                new("Mumblers ", 0.9f),
+                new("Walking-Along-Shouters", 0.8f),
+                new("Demanders of a Chip", 0.6f),
+                new("People Who Call Other People Jimmy ", 0.5f),
+                new("People Who Need Eightpence For A Meal", 0.08f),
+                new("People Who Need Tuppence For A Cup Of Tea", 0.02f),
+                new("People With Placards Saying \"Why lie ? I need a beer.\"", 0)
+            };
             return beggars;
         }
     }
