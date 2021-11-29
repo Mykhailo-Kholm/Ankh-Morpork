@@ -40,21 +40,17 @@ namespace Ankh_Morpork_game.Guilds
 
                     if (float.TryParse(player.Choice, out payment))
                     {
-                        try
-                        {
-                            var freeAssassins = assassins.Where(a =>
-                                !a.IsOccupied && a.MinReward <= payment && payment <= a.MaxReward);
-                            if (player.GiveMoney(payment))
-                            {
-                                Console.WriteLine($"{freeAssassins.First().Name} take the contract");
-                            }
-                        }
-                        catch (Exception)
-                        {
-                            Console.WriteLine("No one can take the contract");
-                            assassins[0].Kill(player);
+
+                        var freeAssassins = assassins.Where(a => !a.IsOccupied && a.MinReward <= payment && payment <= a.MaxReward);
+                        var enumerable = freeAssassins.ToList();
+                        if (enumerable.Any() && player.GiveMoney(payment)) 
+                        { 
+                            Console.WriteLine($"{enumerable.First().Name} take the contract");
+                            return;
                         }
 
+                        Console.WriteLine("No one can take the contract");
+                        assassins[0].Kill(player);
                         return;
                     }
                     Console.WriteLine("Please, enter valid answer!(number or \"skip\"");
