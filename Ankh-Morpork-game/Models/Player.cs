@@ -16,7 +16,7 @@ namespace Ankh_Morpork_game.Models
 
         public bool GiveMoney(float amount)
         {
-            if (amount <= AmountOfMoney)
+            if (amount >= 0 && amount <= AmountOfMoney)
             {
                 AmountOfMoney -= amount;
                 Console.WriteLine($"You have {AmountOfMoney}");
@@ -29,7 +29,8 @@ namespace Ankh_Morpork_game.Models
 
         public void EarnMoney(float amount)
         {
-            AmountOfMoney += amount;
+            if (amount >=0)
+                AmountOfMoney += amount;
             Console.WriteLine($"You have {AmountOfMoney}");
         }
     }
