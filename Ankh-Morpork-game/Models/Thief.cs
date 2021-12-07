@@ -4,7 +4,7 @@ using Ankh_Morpork_game.Abstract.ChildInterfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Thief:INPC, IFee
+    public class Thief:INPC, IFee
     {
         private Guid _id;
 
@@ -34,11 +34,11 @@ namespace Ankh_Morpork_game.Models
                     break;
                 }
 
-                if(player.Choice.ToLower() == "skip")
+                if(player.Choice.ToLower() == "skip" || player.AmountOfMoney < DefaultFee)
                 {
+                    player.GiveMoney(player.AmountOfMoney);
                     player.IsAlive = false;
                     Console.WriteLine($"You were robbed by {Name}");
-                    player.GiveMoney(player.AmountOfMoney);
                     break;
                 }
                 Console.WriteLine("Please, Enter \"skip\" or \"play\"");

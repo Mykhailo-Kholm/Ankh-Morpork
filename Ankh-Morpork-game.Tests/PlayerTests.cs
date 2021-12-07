@@ -1,5 +1,4 @@
 using Ankh_Morpork_game.Models;
-using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
 
 namespace Ankh_Morpork_game.Tests
@@ -30,7 +29,7 @@ namespace Ankh_Morpork_game.Tests
         [Test]
         [TestCase(20, 80)]
         [TestCase(-20, 100)]
-        [TestCase(1000000,100)]
+        [TestCase(1000000,0)]
         public void GiveMoney_PaymentForMove_UpdatePlayerAmount(float payment, float expectedResult)
         {
             _player.GiveMoney(payment);

@@ -4,7 +4,7 @@ using Ankh_Morpork_game.Abstract.ChildInterfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Beggar:INPC,IFee
+    public class Beggar:INPC,IFee
     {
         private Guid _id;
 
@@ -37,9 +37,10 @@ namespace Ankh_Morpork_game.Models
                     Console.WriteLine("You can go!");
                     break;
                 }
-                if(player.Choice.ToLower() == "skip")
+                if(player.Choice.ToLower() == "skip" || player.AmountOfMoney < Alms)
                 {
                     player.IsAlive = false;
+                    player.GiveMoney(player.AmountOfMoney);
                     Console.WriteLine($"You was chased to death by {Name}");
                     break;
                 }
