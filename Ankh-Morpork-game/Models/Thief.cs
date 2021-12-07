@@ -1,10 +1,10 @@
 ﻿using Ankh_Morpork_game.Abstract;
-using Ankh_Morpork_game.Abstract.Interfaces;
 using System;
+using Ankh_Morpork_game.Abstract.ChildInterfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Thief:IThief
+    class Thief:INPC, IFee
     {
         private Guid _id;
 
@@ -16,6 +16,7 @@ namespace Ankh_Morpork_game.Models
 
         public string Name { get; set; }
         public string Speech { get; set; } = "Pay the fee - 10 bucks, otherwise you will be robbed next time";
+        public const float DefaultFee  = 10f;
 
         public Thief(string name)
         {
@@ -27,7 +28,7 @@ namespace Ankh_Morpork_game.Models
             bool goNext = false;
             while (!goNext)
             {
-                if (player.Choice.ToLower() == "play" && player.GiveMoney(IThief.DefaultFee))
+                if (player.Choice.ToLower() == "play" && player.GiveMoney(DefaultFee))
                 {
                     Console.WriteLine("You can go!");
                     break;

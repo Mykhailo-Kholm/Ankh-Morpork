@@ -8,10 +8,10 @@ namespace Ankh_Morpork_game.Gameplay.Services
     {
         public override void InteractWithPlayer(Player player)
         {
-             ListOfNPC = Guild.GeneratorOfNPC();
-            Console.WriteLine(Guild.proposition);
+            ListOfNpc = Guild.GeneratorOfNPC();
+            Console.WriteLine(Guild.Proposition);
             player.Choice = Console.ReadLine();
-            Guild.CreateContract(player,ListOfNPC);
+            Guild.CreateContract(player,ListOfNpc);
         }
     }
 }

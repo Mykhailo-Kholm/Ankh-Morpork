@@ -6,17 +6,17 @@ using System.Collections.Generic;
 namespace Ankh_Morpork_game.Gameplay.Services
 {
     public abstract class AbstractGuildServices<TGuild,TNpc> where TGuild : IGuild<TNpc>, new()
-                                                       where TNpc : INPC  
+                                                             where TNpc : INPC
     {
         protected TGuild Guild;
-        protected List<TNpc> ListOfNPC;
+        protected List<TNpc> ListOfNpc;
         protected Random Rnd;
 
         public AbstractGuildServices()
         {
             Rnd = new Random();
             Guild = new TGuild();
-            ListOfNPC = Guild.GeneratorOfNPC();
+            ListOfNpc = Guild.GeneratorOfNPC();
         }
 
         public abstract void InteractWithPlayer(Player player);

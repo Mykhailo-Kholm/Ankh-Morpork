@@ -1,10 +1,9 @@
 ﻿using Ankh_Morpork_game.Abstract;
-using Ankh_Morpork_game.Abstract.Interfaces;
 using System;
 
 namespace Ankh_Morpork_game.Models
 {
-    public class Assassin : IAssassin
+    public class Assassin : INPC
     {
         private Guid _id;
 

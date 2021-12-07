@@ -1,10 +1,10 @@
 ﻿using Ankh_Morpork_game.Abstract;
-using Ankh_Morpork_game.Abstract.Interfaces;
 using System;
+using Ankh_Morpork_game.Abstract.ChildInterfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    public class Fool:IFool
+    public class Fool:INPC, IFee
     {
         private Guid _id;
 

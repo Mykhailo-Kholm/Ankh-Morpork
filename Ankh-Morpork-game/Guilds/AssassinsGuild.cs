@@ -8,7 +8,7 @@ namespace Ankh_Morpork_game.Guilds
 {
     public class AssassinsGuild:IGuild<Assassin>
     {
-        public string proposition { get; private set; } = "Someone wants to kill you. Do you want to stay alive? Let's sign a contract! Enter your amount or skip:";
+        public string Proposition { get; private set; } = "Someone wants to kill you. Do you want to stay alive? Let's sign a contract! Enter your amount or skip:";
         public List<Assassin> GeneratorOfNPC()
         {
             var assassins = new List<Assassin>(15);

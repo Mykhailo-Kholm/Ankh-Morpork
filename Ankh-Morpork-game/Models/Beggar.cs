@@ -1,10 +1,10 @@
 ﻿using Ankh_Morpork_game.Abstract;
-using Ankh_Morpork_game.Abstract.Interfaces;
 using System;
+using Ankh_Morpork_game.Abstract.ChildInterfaces;
 
 namespace Ankh_Morpork_game.Models
 {
-    class Beggar:IBeggar
+    class Beggar:INPC,IFee
     {
         private Guid _id;
 
