@@ -15,11 +15,11 @@ namespace Ankh_Morpork_game.Models
 
         public string Name { get; set; }
         public string Speech { get; set; }
-        public float MinReward { get; set; }
-        public float MaxReward { get; set; }
+        public decimal MinReward { get; set; }
+        public decimal MaxReward { get; set; }
         public bool IsOccupied { get; set; }
 
-        public Assassin(string name, float minReward, float maxReward, bool isOccupied)
+        public Assassin(string name, decimal minReward, decimal maxReward, bool isOccupied)
         {
             Name = name;
             MinReward = minReward;

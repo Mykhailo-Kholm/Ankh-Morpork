@@ -16,13 +16,13 @@ namespace Ankh_Morpork_game.Models
 
         public string Name { get; set; }
         public string Speech { get; set; }
-        public float Salary { get; set; }
+        public decimal Salary { get; set; }
 
-        public Fool(string name, float salary)
+        public Fool(string name, decimal salary)
         {
             Name = name;
             Salary = salary;
-            Speech = $@"Hi, my friend! Do you want to earn {Salary} $?";
+            Speech = $@"Hi, my friend! Do you want to earn {MoneyFormatter.FormatMoney(Salary)} ?";
         }
         public void GetFee(Player player)
         {

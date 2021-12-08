@@ -4,7 +4,7 @@ namespace Ankh_Morpork_game.Models
 {
     public class Player
     {
-        public float AmountOfMoney { get; private set; } = 100f;
+        public decimal AmountOfMoney { get; private set; } = 100;
         public bool IsAlive { get; set; } = true;
         public string Name { get; }
         public string Choice { get; set; }
@@ -14,12 +14,12 @@ namespace Ankh_Morpork_game.Models
             Name = name;
         }
 
-        public bool GiveMoney(float amount)
+        public bool GiveMoney(decimal amount)
         {
             if (amount >= 0 && amount <= AmountOfMoney)
             {
                 AmountOfMoney -= amount;
-                Console.WriteLine($"You have {AmountOfMoney}");
+                Console.WriteLine($"You have {MoneyFormatter.FormatMoney(AmountOfMoney)}");
                 return true;
             }
 
@@ -32,11 +32,11 @@ namespace Ankh_Morpork_game.Models
             return false;
         }
 
-        public void EarnMoney(float amount)
+        public void EarnMoney(decimal amount)
         {
             if (amount >=0)
                 AmountOfMoney += amount;
-            Console.WriteLine($"You have {AmountOfMoney}");
+            Console.WriteLine($"You have {MoneyFormatter.FormatMoney(AmountOfMoney)}");
         }
     }
 }

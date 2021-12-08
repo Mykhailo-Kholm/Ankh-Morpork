@@ -10,7 +10,7 @@ namespace Ankh_Morpork_game.Guilds
         {
             var fools = new List<Fool>(9)
             {
-                new("Muggins", 0.5f),
+                new("Muggins", 0.5m),
                 new("Gull", 1),
                 new("Dupe", 2),
                 new("Butt", 3),

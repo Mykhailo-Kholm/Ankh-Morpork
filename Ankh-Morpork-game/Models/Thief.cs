@@ -16,7 +16,7 @@ namespace Ankh_Morpork_game.Models
 
         public string Name { get; set; }
         public string Speech { get; set; } = "Pay the fee - 10 bucks, otherwise you will be robbed next time";
-        public const float DefaultFee  = 10f;
+        public const decimal DefaultFee  = 10;
 
         public Thief(string name)
         {

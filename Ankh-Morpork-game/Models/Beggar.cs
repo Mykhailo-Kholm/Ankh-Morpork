@@ -1,5 +1,5 @@
-﻿using Ankh_Morpork_game.Abstract;
-using System;
+﻿using System;
+using Ankh_Morpork_game.Abstract;
 using Ankh_Morpork_game.Abstract.ChildInterfaces;
 
 namespace Ankh_Morpork_game.Models
@@ -16,14 +16,14 @@ namespace Ankh_Morpork_game.Models
 
         public string Name { get; set; }
         public string Speech { get; set; }
-        public float Alms { get; set; }
+        public decimal Alms { get; set; }
 
-        public Beggar(string name, float alms)
+        public Beggar(string name, decimal alms)
         {
             Name = name;
             Alms = alms;
             if (alms != 0)
-                Speech = @$"Give me {Alms} $ or I will chase you to death";
+                Speech = @$"Give me {MoneyFormatter.FormatMoney(Alms)} or I will chase you to death";
             else
                 Speech = "Why lie? I need a beer.";
         }

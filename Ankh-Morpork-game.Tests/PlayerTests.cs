@@ -19,7 +19,7 @@ namespace Ankh_Morpork_game.Tests
         [TestCase(1000000,false)]
         [TestCase(-20,false)]
 
-        public void GiveMoney_PaymentForMove_ReturnBoolResultAboutPayment(float payment, bool expectedResult)
+        public void GiveMoney_PaymentForMove_ReturnBoolResultAboutPayment(decimal payment, bool expectedResult)
         {
             bool actualResult = _player.GiveMoney(payment);
 
@@ -30,10 +30,10 @@ namespace Ankh_Morpork_game.Tests
         [TestCase(20, 80)]
         [TestCase(-20, 100)]
         [TestCase(1000000,0)]
-        public void GiveMoney_PaymentForMove_UpdatePlayerAmount(float payment, float expectedResult)
+        public void GiveMoney_PaymentForMove_UpdatePlayerAmount(decimal payment, decimal expectedResult)
         {
             _player.GiveMoney(payment);
-            float actualResult = _player.AmountOfMoney;
+            decimal actualResult = _player.AmountOfMoney;
 
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -41,7 +41,7 @@ namespace Ankh_Morpork_game.Tests
         [Test]
         [TestCase(10,110)]
         [TestCase(-10, 100)]
-        public void EarnMoney_TakeAJobFromFool_IncreaseAmountOfMoney(float amount, float expectedResult)
+        public void EarnMoney_TakeAJobFromFool_IncreaseAmountOfMoney(decimal amount, decimal expectedResult)
         {
             _player.EarnMoney(amount);
             

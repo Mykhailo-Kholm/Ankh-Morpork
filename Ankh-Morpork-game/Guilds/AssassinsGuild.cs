@@ -29,7 +29,7 @@ namespace Ankh_Morpork_game.Guilds
         {
             while (player.AmountOfMoney >= 0 )
             {
-                float payment = 0;
+                decimal payment = 0;
                 try
                 {
                     if (String.Equals(player.Choice.ToLower(), "skip"))
@@ -38,7 +38,7 @@ namespace Ankh_Morpork_game.Guilds
                         return;
                     }
 
-                    if (float.TryParse(player.Choice, out payment))
+                    if (decimal.TryParse(player.Choice, out payment))
                     {
 
                         var freeAssassins = assassins.Where(a => !a.IsOccupied && a.MinReward <= payment && payment <= a.MaxReward);
