@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.31729.503
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ankh-Morpork-game", "Ankh-Morpork-game\Ankh-Morpork-game.csproj", "{E9631291-06E5-4802-8735-33652149A6C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ankh-Morpork-game.Tests", "Ankh-Morpork-game.Tests\Ankh-Morpork-game.Tests.csproj", "{991E198F-D3AB-4413-946A-B149B211A2BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ankh-Morpork-game.Tests", "Ankh-Morpork-game.Tests\Ankh-Morpork-game.Tests.csproj", "{991E198F-D3AB-4413-946A-B149B211A2BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ankh-Morpork-MVC", "Ankh-Morpork-MVC\Ankh-Morpork-MVC.csproj", "{04116B2A-2943-4108-BEDD-396378F0382D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{991E198F-D3AB-4413-946A-B149B211A2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{991E198F-D3AB-4413-946A-B149B211A2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{991E198F-D3AB-4413-946A-B149B211A2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04116B2A-2943-4108-BEDD-396378F0382D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04116B2A-2943-4108-BEDD-396378F0382D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04116B2A-2943-4108-BEDD-396378F0382D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04116B2A-2943-4108-BEDD-396378F0382D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
