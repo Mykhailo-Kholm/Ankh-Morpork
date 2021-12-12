@@ -131,6 +131,21 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112121721111_InitialModel.cs" />
+    <Compile Include="Migrations\202112121721111_InitialModel.designer.cs">
+      <DependentUpon>202112121721111_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112121746085_UpdateModel.cs" />
+    <Compile Include="Migrations\202112121746085_UpdateModel.designer.cs">
+      <DependentUpon>202112121746085_UpdateModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Assassin.cs" />
+    <Compile Include="Models\Beggar.cs" />
+    <Compile Include="Models\Fool.cs" />
+    <Compile Include="Models\NpcContext.cs" />
+    <Compile Include="Models\Player.cs" />
+    <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,7 +188,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Core\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -187,6 +201,14 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202112121721111_InitialModel.resx">
+      <DependentUpon>202112121721111_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112121746085_UpdateModel.resx">
+      <DependentUpon>202112121746085_UpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
