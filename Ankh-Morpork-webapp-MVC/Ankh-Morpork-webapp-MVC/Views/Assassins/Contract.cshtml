@@ -1,4 +1,5 @@
-﻿@model Ankh_Morpork_webapp_MVC.Models.Player
+﻿@using Ankh_Morpork_webapp_MVC.ViewModels
+@model Ankh_Morpork_webapp_MVC.ViewModels.PlayerViewModel
 @{
     ViewBag.Title = "Contract";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -11,7 +12,7 @@
         <div class="col-auto">
             <label class="col-form-label fs-4">Reward</label>
         </div>
-        @Html.TextBoxFor(player => player.Choice)
+        @Html.TextBoxFor(p => p.Payment)
         <button type="submit" class ="btn btn-primary">Submit</button>
     </div>
 }
