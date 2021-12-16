@@ -35,5 +35,10 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         {
             return View("GameOver");
         }
+
+        public ActionResult NextStep()
+        {
+            return View();
+        }
     }
 }

@@ -15,7 +15,7 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         public ActionResult AssassinsIndex()
         {
             var assassin = _assassins.GeneratorOfNPC();
-            var model = new AssassinsIndexViewModel()
+            var model = new MeetingNpcViewModel()
             {
                 ImageUrl   = assassin.ImageUrl,
                 Message = _assassins.Proposition
@@ -33,5 +33,12 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         {
             return RedirectToAction("GameOver", "Game");
         }
-    }
+
+        [HttpPost]
+        public ActionResult SignContract(decimal reward)
+        {
+
+            return RedirectToAction("NextStep", "Game");
+        }
+        }
 }

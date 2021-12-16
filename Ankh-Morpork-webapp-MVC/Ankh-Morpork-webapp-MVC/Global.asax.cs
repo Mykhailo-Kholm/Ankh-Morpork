@@ -16,7 +16,7 @@ namespace Ankh_Morpork_webapp_MVC
     {
         protected void Application_Start()
         {
-            DbContextSeeder.Seed(SingletonDbContext.GetInstance());
+            //DbContextSeeder.Seed(SingletonDbContext.GetInstance());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
