@@ -127,7 +127,29 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AssassinsController.cs" />
+    <Compile Include="Controllers\BeggarsController.cs" />
+    <Compile Include="Controllers\FoolsController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
+    <Compile Include="Abstract\AbstractGuildServices.cs" />
+    <Compile Include="Abstract\Interfaces\IFee.cs" />
+    <Compile Include="Abstract\Interfaces\IGuild.cs" />
+    <Compile Include="Abstract\Interfaces\INPC.cs" />
+    <Compile Include="Controllers\ThievesController.cs" />
+    <Compile Include="Data\IRepository\INpcRepo.cs" />
+    <Compile Include="Data\Repository\AssassinRepo.cs" />
+    <Compile Include="Data\Repository\BeggarRepo.cs" />
+    <Compile Include="Data\Repository\FoolRepo.cs" />
+    <Compile Include="Data\Repository\ThiefRepo.cs" />
+    <Compile Include="Data\Resources\DbContextSeeder.cs" />
+    <Compile Include="Gameplay\Services\AssassinsGuildServices.cs" />
+    <Compile Include="Gameplay\Services\GuildServices.cs" />
+    <Compile Include="Gameplay\Services\ThievesGuildServices.cs" />
+    <Compile Include="Guilds\AssassinsGuild.cs" />
+    <Compile Include="Guilds\BeggarsGuild.cs" />
+    <Compile Include="Guilds\FoolsGuild.cs" />
+    <Compile Include="Guilds\ThievesGuild.cs" />
+    <Compile Include="Data\MoneyFormatter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,26 +161,197 @@
     <Compile Include="Migrations\202112121746085_UpdateModel.designer.cs">
       <DependentUpon>202112121746085_UpdateModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112122034241_ApplyAnnotationsToName.cs" />
+    <Compile Include="Migrations\202112122034241_ApplyAnnotationsToName.designer.cs">
+      <DependentUpon>202112122034241_ApplyAnnotationsToName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112150715459_UppdateModels.cs" />
+    <Compile Include="Migrations\202112150715459_UppdateModels.designer.cs">
+      <DependentUpon>202112150715459_UppdateModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202112151028450_Empthy.cs" />
+    <Compile Include="Migrations\202112151028450_Empthy.designer.cs">
+      <DependentUpon>202112151028450_Empthy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assassin.cs" />
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
-    <Compile Include="Models\NpcContext.cs" />
+    <Compile Include="Data\NpcContext.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AssassinsIndexViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="Content\Images\Assassins\1.jpg" />
+    <Content Include="Content\Images\Assassins\10.jpg" />
+    <Content Include="Content\Images\Assassins\2.jpg" />
+    <Content Include="Content\Images\Assassins\3.jpg" />
+    <Content Include="Content\Images\Assassins\4.jpg" />
+    <Content Include="Content\Images\Assassins\5.jpg" />
+    <Content Include="Content\Images\Assassins\6.jpg" />
+    <Content Include="Content\Images\Assassins\7.jpg" />
+    <Content Include="Content\Images\Assassins\8.jpg" />
+    <Content Include="Content\Images\Assassins\9.jpg" />
+    <Content Include="Content\Images\Beggars\1.png" />
+    <Content Include="Content\Images\Beggars\10.png" />
+    <Content Include="Content\Images\Beggars\11.png" />
+    <Content Include="Content\Images\Beggars\2.png" />
+    <Content Include="Content\Images\Beggars\3.png" />
+    <Content Include="Content\Images\Beggars\4.png" />
+    <Content Include="Content\Images\Beggars\5.png" />
+    <Content Include="Content\Images\Beggars\6.png" />
+    <Content Include="Content\Images\Beggars\7.png" />
+    <Content Include="Content\Images\Beggars\8.png" />
+    <Content Include="Content\Images\Beggars\9.png" />
+    <Content Include="Content\Images\City\ankMorpork.jpg" />
+    <Content Include="Content\Images\City\mendedDrum.jpg" />
+    <Content Include="Content\Images\Fools\1.png" />
+    <Content Include="Content\Images\Fools\2.png" />
+    <Content Include="Content\Images\Fools\3.png" />
+    <Content Include="Content\Images\Fools\4.png" />
+    <Content Include="Content\Images\Fools\5.png" />
+    <Content Include="Content\Images\Fools\6.png" />
+    <Content Include="Content\Images\Fools\7.png" />
+    <Content Include="Content\Images\Fools\8.png" />
+    <Content Include="Content\Images\Fools\9.png" />
+    <Content Include="Content\Images\Thieves\1.jpg" />
+    <Content Include="Content\Images\Thieves\2.jpg" />
+    <Content Include="Content\Images\Thieves\3.jpg" />
+    <Content Include="Content\Images\Thieves\4.jpg" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="Content\bootstrap\_variables.scss" />
+    <Content Include="Content\bootstrap\_utilities.scss" />
+    <Content Include="Content\bootstrap\_type.scss" />
+    <Content Include="Content\bootstrap\_transitions.scss" />
+    <Content Include="Content\bootstrap\_tooltip.scss" />
+    <Content Include="Content\bootstrap\_toasts.scss" />
+    <Content Include="Content\bootstrap\_tables.scss" />
+    <Content Include="Content\bootstrap\_spinners.scss" />
+    <Content Include="Content\bootstrap\_root.scss" />
+    <Content Include="Content\bootstrap\_reboot.scss" />
+    <Content Include="Content\bootstrap\_progress.scss" />
+    <Content Include="Content\bootstrap\_popover.scss" />
+    <Content Include="Content\bootstrap\_placeholders.scss" />
+    <Content Include="Content\bootstrap\_pagination.scss" />
+    <Content Include="Content\bootstrap\_offcanvas.scss" />
+    <Content Include="Content\bootstrap\_navbar.scss" />
+    <Content Include="Content\bootstrap\_nav.scss" />
+    <Content Include="Content\bootstrap\_modal.scss" />
+    <Content Include="Content\bootstrap\_mixins.scss" />
+    <Content Include="Content\bootstrap\_list-group.scss" />
+    <Content Include="Content\bootstrap\_images.scss" />
+    <Content Include="Content\bootstrap\_helpers.scss" />
+    <Content Include="Content\bootstrap\_grid.scss" />
+    <Content Include="Content\bootstrap\_functions.scss" />
+    <Content Include="Content\bootstrap\_forms.scss" />
+    <Content Include="Content\bootstrap\_dropdown.scss" />
+    <Content Include="Content\bootstrap\_containers.scss" />
+    <Content Include="Content\bootstrap\_close.scss" />
+    <Content Include="Content\bootstrap\_carousel.scss" />
+    <Content Include="Content\bootstrap\_card.scss" />
+    <Content Include="Content\bootstrap\_buttons.scss" />
+    <Content Include="Content\bootstrap\_button-group.scss" />
+    <Content Include="Content\bootstrap\_breadcrumb.scss" />
+    <Content Include="Content\bootstrap\_badge.scss" />
+    <Content Include="Content\bootstrap\_alert.scss" />
+    <Content Include="Content\bootstrap\_accordion.scss" />
+    <Content Include="Content\bootstrap\vendor\_rfs.scss" />
+    <Content Include="Content\bootstrap\utilities\_api.scss" />
+    <Content Include="Content\bootstrap\mixins\_visually-hidden.scss" />
+    <Content Include="Content\bootstrap\mixins\_utilities.scss" />
+    <Content Include="Content\bootstrap\mixins\_transition.scss" />
+    <Content Include="Content\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="Content\bootstrap\mixins\_table-variants.scss" />
+    <Content Include="Content\bootstrap\mixins\_resize.scss" />
+    <Content Include="Content\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="Content\bootstrap\mixins\_pagination.scss" />
+    <Content Include="Content\bootstrap\mixins\_lists.scss" />
+    <Content Include="Content\bootstrap\mixins\_list-group.scss" />
+    <Content Include="Content\bootstrap\mixins\_image.scss" />
+    <Content Include="Content\bootstrap\mixins\_grid.scss" />
+    <Content Include="Content\bootstrap\mixins\_gradients.scss" />
+    <Content Include="Content\bootstrap\mixins\_forms.scss" />
+    <Content Include="Content\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="Content\bootstrap\mixins\_container.scss" />
+    <Content Include="Content\bootstrap\mixins\_color-scheme.scss" />
+    <Content Include="Content\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="Content\bootstrap\mixins\_caret.scss" />
+    <Content Include="Content\bootstrap\mixins\_buttons.scss" />
+    <Content Include="Content\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="Content\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="Content\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="Content\bootstrap\mixins\_backdrop.scss" />
+    <Content Include="Content\bootstrap\mixins\_alert.scss" />
+    <Content Include="Content\bootstrap\helpers\_vr.scss" />
+    <Content Include="Content\bootstrap\helpers\_visually-hidden.scss" />
+    <Content Include="Content\bootstrap\helpers\_text-truncation.scss" />
+    <Content Include="Content\bootstrap\helpers\_stretched-link.scss" />
+    <Content Include="Content\bootstrap\helpers\_stacks.scss" />
+    <Content Include="Content\bootstrap\helpers\_ratio.scss" />
+    <Content Include="Content\bootstrap\helpers\_position.scss" />
+    <Content Include="Content\bootstrap\helpers\_colored-links.scss" />
+    <Content Include="Content\bootstrap\helpers\_clearfix.scss" />
+    <Content Include="Content\bootstrap\forms\_validation.scss" />
+    <Content Include="Content\bootstrap\forms\_labels.scss" />
+    <Content Include="Content\bootstrap\forms\_input-group.scss" />
+    <Content Include="Content\bootstrap\forms\_form-text.scss" />
+    <Content Include="Content\bootstrap\forms\_form-select.scss" />
+    <Content Include="Content\bootstrap\forms\_form-range.scss" />
+    <Content Include="Content\bootstrap\forms\_form-control.scss" />
+    <Content Include="Content\bootstrap\forms\_form-check.scss" />
+    <Content Include="Content\bootstrap\forms\_floating-labels.scss" />
+    <Content Include="Content\bootstrap\bootstrap.scss" />
+    <Content Include="Content\bootstrap\bootstrap-utilities.scss" />
+    <Content Include="Content\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="Content\bootstrap\bootstrap-grid.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -181,23 +374,19 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Assassins\AssassinsIndex.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Beggars\BeggarsIndex.cshtml" />
+    <Content Include="Views\Fools\FoolsIndex.cshtml" />
+    <Content Include="Views\Thieves\ThievesIndex.cshtml" />
+    <Content Include="Views\Game\GameOver.cshtml" />
+    <Content Include="Views\Assassins\Contract.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Core\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
@@ -208,6 +397,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112121746085_UpdateModel.resx">
       <DependentUpon>202112121746085_UpdateModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112122034241_ApplyAnnotationsToName.resx">
+      <DependentUpon>202112122034241_ApplyAnnotationsToName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112150715459_UppdateModels.resx">
+      <DependentUpon>202112150715459_UppdateModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112151028450_Empthy.resx">
+      <DependentUpon>202112151028450_Empthy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

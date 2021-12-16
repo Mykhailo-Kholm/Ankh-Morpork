@@ -1,0 +1,19 @@
+﻿@model Ankh_Morpork_webapp_MVC.ViewModels.AssassinsIndexViewModel
+@{
+    ViewBag.Title = "AssassinsIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8 align-items-md-center">  
+            <img src="~/Content/Images/Assassins/@(Model.ImageUrl)" class="img-thumbnail align-items-md-center"/>
+        </div>
+        <div class="col-4">
+            <p class="bg-dark text-white fs-2">
+                @Model.Message
+            </p>
+            @Html.ActionLink("Skip", "Skip","Assassins", new{@class= "btn btn-secondary btn-lg" })
+            @Html.ActionLink("Sign a contract!", "Contract", "Assassins", new{@class= "btn btn-secondary btn-lg" })
+        </div>
+    </div>
+</div>
