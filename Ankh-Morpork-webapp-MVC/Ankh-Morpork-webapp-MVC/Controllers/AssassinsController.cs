@@ -35,10 +35,12 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult SignContract(decimal reward)
+        public ActionResult SignContract(PlayerViewModel player)
         {
-
+            var assassin = _assassins.Repository.GetNpcForGuild()
+                .First(a => a.MaxReward > player.Payment && a.MinReward < player.Payment);
+            _assassins.CreateContract()
             return RedirectToAction("NextStep", "Game");
         }
-        }
+    }
 }
