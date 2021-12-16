@@ -9,8 +9,8 @@ namespace Ankh_Morpork_webapp_MVC.Data.Repository
 {
     public class AssassinRepo:INpcRepo<Assassin>
     {
-        private readonly NpcContext _context;
-        public AssassinRepo(NpcContext context) => _context = context;
+        private readonly SingletonDbContext _context;
+        public AssassinRepo(SingletonDbContext context) => _context = context;
         public IEnumerable<Assassin> GetNpcForGuild() => _context.Assassins;
     }
 }

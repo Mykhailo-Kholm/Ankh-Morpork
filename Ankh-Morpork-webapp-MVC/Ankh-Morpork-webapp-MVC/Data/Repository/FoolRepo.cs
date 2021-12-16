@@ -9,8 +9,8 @@ namespace Ankh_Morpork_webapp_MVC.Data.Repository
 {
     public class FoolRepo:INpcRepo<Fool>
     {
-        private readonly NpcContext _context;
-        public FoolRepo(NpcContext context) => _context = context;
+        private readonly SingletonDbContext _context;
+        public FoolRepo(SingletonDbContext context) => _context = context;
         public IEnumerable<Fool> GetNpcForGuild() => _context.Fools;
     }
 }

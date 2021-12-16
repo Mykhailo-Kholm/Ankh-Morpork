@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Ankh_Morpork_webapp_MVC.Data;
 using Ankh_Morpork_webapp_MVC.Data.IRepository;
 using Ankh_Morpork_webapp_MVC.Data.Repository;
 using Ankh_Morpork_webapp_MVC.Models;
@@ -15,7 +16,7 @@ namespace Ankh_Morpork_game.Guilds
 
         public AssassinsGuild()
         {
-            Repository = new AssassinRepo(NpcContext.GetInstance());
+            Repository = new AssassinRepo(SingletonDbContext.GetInstance());
         }
         public Assassin GeneratorOfNPC()
         {

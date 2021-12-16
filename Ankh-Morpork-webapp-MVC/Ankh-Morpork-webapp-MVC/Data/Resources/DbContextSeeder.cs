@@ -9,7 +9,7 @@ namespace Ankh_Morpork_webapp_MVC.Data.Resources
 {
     public class DbContextSeeder
     {
-        public static void Seed(NpcContext context)
+        public static void Seed(SingletonDbContext context)
         {
             Random rnd = new Random();
             var assassins = new List<Assassin>(10);

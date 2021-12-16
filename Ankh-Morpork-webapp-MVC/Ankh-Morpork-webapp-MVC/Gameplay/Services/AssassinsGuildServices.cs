@@ -1,6 +1,7 @@
 ﻿using Ankh_Morpork_game.Guilds;
 using System;
 using System.Linq;
+using Ankh_Morpork_webapp_MVC.Data;
 using Ankh_Morpork_webapp_MVC.Data.Repository;
 using Ankh_Morpork_webapp_MVC.Models;
 
@@ -12,7 +13,7 @@ namespace Ankh_Morpork_game.Gameplay.Services
         private AssassinRepo _assassinRepo;
         public AssassinsGuildGuildServices(AssassinsGuild guild) : base(guild)
         {
-            _assassinRepo = new AssassinRepo(NpcContext.GetInstance());
+            _assassinRepo = new AssassinRepo(SingletonDbContext.GetInstance());
         }
 
         public override void InteractWithPlayer(Player player)

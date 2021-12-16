@@ -13,17 +13,8 @@ namespace Ankh_Morpork_webapp_MVC.Models
         public DbSet<Beggar> Beggars { get; set; }
         public DbSet<Fool> Fools { get; set; }
         public DbSet<Thief> Thieves { get; set; }
-
-        private static NpcContext _context;
-
-        private NpcContext():base("name=DbNpcConnection")
+        public NpcContext():base("name=DbNpcConnection")
         {
-        }
-        public static NpcContext GetInstance()
-        {
-            if (_context == null)
-                _context = new NpcContext();
-            return _context;
         }
     }
 }

@@ -9,8 +9,8 @@ namespace Ankh_Morpork_webapp_MVC.Data.Repository
 {
     public class BeggarRepo:INpcRepo<Beggar>
     {
-        private readonly NpcContext _context;
-        public BeggarRepo(NpcContext context) =>_context = context;
+        private readonly SingletonDbContext _context;
+        public BeggarRepo(SingletonDbContext context) =>_context = context;
         public IEnumerable<Beggar> GetNpcForGuild() => _context.Beggars;
     }
 }

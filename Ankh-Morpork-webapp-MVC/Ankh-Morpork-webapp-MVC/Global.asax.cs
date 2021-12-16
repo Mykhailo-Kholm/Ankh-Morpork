@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Ankh_Morpork_webapp_MVC.Data;
 using Ankh_Morpork_webapp_MVC.Data.Resources;
 using Ankh_Morpork_webapp_MVC.Models;
 
@@ -15,7 +16,7 @@ namespace Ankh_Morpork_webapp_MVC
     {
         protected void Application_Start()
         {
-            //DbContextSeeder.Seed(NpcContext.GetInstance());
+            DbContextSeeder.Seed(SingletonDbContext.GetInstance());
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

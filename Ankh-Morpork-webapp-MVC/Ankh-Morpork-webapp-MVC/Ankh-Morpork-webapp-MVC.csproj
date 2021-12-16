@@ -142,6 +142,7 @@
     <Compile Include="Data\Repository\FoolRepo.cs" />
     <Compile Include="Data\Repository\ThiefRepo.cs" />
     <Compile Include="Data\Resources\DbContextSeeder.cs" />
+    <Compile Include="Data\SingletonDbContext.cs" />
     <Compile Include="Gameplay\Services\AssassinsGuildServices.cs" />
     <Compile Include="Gameplay\Services\GuildServices.cs" />
     <Compile Include="Gameplay\Services\ThievesGuildServices.cs" />
