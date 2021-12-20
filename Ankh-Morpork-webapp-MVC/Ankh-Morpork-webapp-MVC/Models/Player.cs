@@ -14,14 +14,9 @@ namespace Ankh_Morpork_webapp_MVC.Models
         public int AmountOfBeers { get; set; } = 1;
         public string MoneyMessage { get; set; } = MoneyFormatter.FormatMoney(100);
         private static Player _player;
-        private Player()
-        {
-        }
         public static Player GetPlayer()
         {
-            if (_player == null)
-                _player = new Player();
-            return _player;
+            return _player ?? (_player = new Player());
         }
         public void GiveMoney(decimal amount)
         {

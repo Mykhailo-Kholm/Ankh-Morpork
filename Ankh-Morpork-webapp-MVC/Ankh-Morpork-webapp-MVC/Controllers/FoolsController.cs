@@ -16,6 +16,8 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         // GET: Fools
         public ActionResult FoolsIndex()
         {
+            if (!Player.GetPlayer().IsAlive)
+                return RedirectToAction("GameOver", "Game");
             var fool = Fools.GeneratorOfNPC();
             return View("FoolsIndex", fool);
         }

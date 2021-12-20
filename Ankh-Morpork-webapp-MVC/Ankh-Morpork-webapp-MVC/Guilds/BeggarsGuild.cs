@@ -9,7 +9,7 @@ using Ankh_Morpork_webapp_MVC.Models;
 
 namespace Ankh_Morpork_game.Guilds
 {
-    class BeggarsGuild : IGuild<Beggar>
+    class BeggarsGuild
     {
         public INpcRepo Repository { get; }
         private Random rnd = new Random();

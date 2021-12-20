@@ -15,6 +15,8 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         // GET: Assassins
         public ActionResult AssassinsIndex()
         {
+            if (Player.GetPlayer().AmountOfMoney == 0 || !Player.GetPlayer().IsAlive)
+                return RedirectToAction("GameOver", "Game");
             var assassin = _assassins.GeneratorOfNPC();
             var model = new MessageViewModel()
             {
@@ -23,7 +25,6 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
                 ImageUrl   = assassin.ImageUrl,
                 Message = _assassins.Proposition
             };
-
             return View("AssassinsIndex",model);
         }
 

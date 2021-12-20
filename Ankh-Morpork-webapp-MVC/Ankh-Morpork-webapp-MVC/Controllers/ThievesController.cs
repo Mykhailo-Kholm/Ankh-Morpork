@@ -15,6 +15,8 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         // GET: Thieves
         public ActionResult ThievesIndex()
         {
+            if (Player.GetPlayer().AmountOfMoney == 0 || !Player.GetPlayer().IsAlive)
+                return RedirectToAction("GameOver", "Game");
             var thief = Thieves.GeneratorOfNPC();
             ThievesGuild.AcceptableNumberOfThefts--;
             return View("ThievesIndex", thief);

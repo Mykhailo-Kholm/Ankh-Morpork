@@ -133,7 +133,6 @@
     <Compile Include="Controllers\FoolsController.cs" />
     <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Abstract\AbstractFee.cs" />
-    <Compile Include="Abstract\Interfaces\IGuild.cs" />
     <Compile Include="Abstract\Interfaces\INPC.cs" />
     <Compile Include="Controllers\ThievesController.cs" />
     <Compile Include="Data\IRepository\INpcRepo.cs" />
