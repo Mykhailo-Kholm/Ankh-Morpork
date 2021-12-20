@@ -11,8 +11,8 @@
         <div class="col-auto">
             <label class="col-form-label fs-4">Reward</label>
         </div>
-        @Html.TextBoxFor(p => p.Payment)<br/>
-        @Html.ValidationMessageFor(p=>p.Payment)<br />
+        @Html.TextBoxFor(p => p.Payment, htmlAttributes:new {@class="field-validation-error"})<br/>
+        @Html.ValidationMessageFor(p=>p.Payment)<br/>
         <button type="submit" class ="btn btn-primary">Submit</button>
     </div>
 }
