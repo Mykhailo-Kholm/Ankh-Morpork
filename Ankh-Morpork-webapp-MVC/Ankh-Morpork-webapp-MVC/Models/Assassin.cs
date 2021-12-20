@@ -18,13 +18,10 @@ namespace Ankh_Morpork_webapp_MVC.Models
         public decimal MaxReward { get; set; }
         public bool IsOccupied { get; set; }
         public string ImageUrl { get; set; }
-        [NotMapped]
-        public string Speech { get; set; }
 
-        public void Kill(Player player)
+        public static void Kill(Player player)
         {
             player.IsAlive = false;
-            Speech= $"{Name} killed you";
         }
     }
 }

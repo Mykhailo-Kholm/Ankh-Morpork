@@ -5,7 +5,7 @@ namespace Ankh_Morpork_game.Abstract
 {
     public interface IGuild<T>
     {
-        INpcRepo<T> Repository { get;}
+        INpcRepo Repository { get;}
         T GeneratorOfNPC();
     }
 }

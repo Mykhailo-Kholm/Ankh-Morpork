@@ -1,6 +1,7 @@
 ﻿using Ankh_Morpork_game.Abstract;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Ankh_Morpork_webapp_MVC.Data;
 using Ankh_Morpork_webapp_MVC.Data.IRepository;
@@ -11,7 +12,7 @@ namespace Ankh_Morpork_game.Guilds
 {
     public class AssassinsGuild:IGuild<Assassin>
     {
-        public INpcRepo<Assassin> Repository { get; }
+        public INpcRepo Repository { get; }
         public string Proposition => "Someone wants to kill you. Do you want to stay alive? Let's sign a contract!";
 
         public AssassinsGuild()
@@ -23,39 +24,21 @@ namespace Ankh_Morpork_game.Guilds
             Random rnd = new Random();
             var assassins = Repository.GetNpcForGuild().ToList();
             var assassin = assassins[rnd.Next(0, assassins.Count)];
-            return assassin;
+            return (Assassin)assassin;
         }
 
-        public string CreateContract(Player player, List<Assassin> assassins)
+        public bool CreateContract(Player player,decimal payment)
         {
-            decimal payment = 0;
-            try
-            {
-                if (String.Equals(player.Choice.ToLower(), "skip"))
-                {
-                    assassins[0].Kill(player);
-                }
+            var assassin = ((IEnumerable<Assassin>) Repository.GetNpcForGuild()).FirstOrDefault(a =>
+                    a.MaxReward > payment && payment > a.MinReward && !a.IsOccupied);
 
-                if (decimal.TryParse(player.Choice, out payment))
-                {
-
-                    var freeAssassins = assassins.Where(a => !a.IsOccupied && a.MinReward <= payment && payment <= a.MaxReward);
-                    var enumerable = freeAssassins.ToList();
-                    if (enumerable.Any())
-                    {
-                        player.GiveMoney(payment);
-                        return $"{enumerable.First().Name} take the contract";
-                    }
-                    assassins[0].Kill(player);
-                    return "No one can take the contract";
-                }
-            }
-            catch (NullReferenceException e)
+            if (assassin != null)
             {
-                Console.WriteLine(e.Message);
+                player.GiveMoney(payment);
+                return true;
             }
-            if(player.AmountOfMoney == 0) assassins[0].Kill(player);
-            return "Contract not created";
+            Assassin.Kill(player);
+            return false;
         }
 
     }

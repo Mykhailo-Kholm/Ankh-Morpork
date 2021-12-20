@@ -128,11 +128,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AssassinsController.cs" />
+    <Compile Include="Controllers\MendedDrumController.cs" />
     <Compile Include="Controllers\BeggarsController.cs" />
     <Compile Include="Controllers\FoolsController.cs" />
     <Compile Include="Controllers\GameController.cs" />
-    <Compile Include="Abstract\AbstractGuildServices.cs" />
-    <Compile Include="Abstract\Interfaces\IFee.cs" />
+    <Compile Include="Abstract\AbstractFee.cs" />
     <Compile Include="Abstract\Interfaces\IGuild.cs" />
     <Compile Include="Abstract\Interfaces\INPC.cs" />
     <Compile Include="Controllers\ThievesController.cs" />
@@ -143,9 +143,6 @@
     <Compile Include="Data\Repository\ThiefRepo.cs" />
     <Compile Include="Data\Resources\DbContextSeeder.cs" />
     <Compile Include="Data\SingletonDbContext.cs" />
-    <Compile Include="Gameplay\Services\AssassinsGuildServices.cs" />
-    <Compile Include="Gameplay\Services\GuildServices.cs" />
-    <Compile Include="Gameplay\Services\ThievesGuildServices.cs" />
     <Compile Include="Guilds\AssassinsGuild.cs" />
     <Compile Include="Guilds\BeggarsGuild.cs" />
     <Compile Include="Guilds\FoolsGuild.cs" />
@@ -174,15 +171,20 @@
     <Compile Include="Migrations\202112151028450_Empthy.designer.cs">
       <DependentUpon>202112151028450_Empthy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202112171814353_ChangeFeeColumn.cs" />
+    <Compile Include="Migrations\202112171814353_ChangeFeeColumn.designer.cs">
+      <DependentUpon>202112171814353_ChangeFeeColumn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Assassin.cs" />
+    <Compile Include="Models\Bar.cs" />
     <Compile Include="Models\Beggar.cs" />
     <Compile Include="Models\Fool.cs" />
     <Compile Include="Data\NpcContext.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Models\Thief.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\MeetingNpcViewModel.cs" />
+    <Compile Include="ViewModels\MessageViewModel.cs" />
     <Compile Include="ViewModels\PlayerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +387,8 @@
     <Content Include="Views\Game\GameOver.cshtml" />
     <Content Include="Views\Assassins\Contract.cshtml" />
     <Content Include="Views\Game\NextStep.cshtml" />
+    <Content Include="Views\Shared\_InfoView.cshtml" />
+    <Content Include="Views\MendedDrum\BarIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -409,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202112151028450_Empthy.resx">
       <DependentUpon>202112151028450_Empthy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202112171814353_ChangeFeeColumn.resx">
+      <DependentUpon>202112171814353_ChangeFeeColumn.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

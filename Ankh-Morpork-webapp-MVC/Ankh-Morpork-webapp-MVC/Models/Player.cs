@@ -9,26 +9,27 @@ namespace Ankh_Morpork_webapp_MVC.Models
     public class Player
     {
         public int Id { get; set; }
-        public decimal AmountOfMoney { get; private set; } = 100;
+        public decimal AmountOfMoney { get; set; } = 100;
         public bool IsAlive { get; set; } = true;
-        public string Name { get; set; }
-        public string Choice { get; set; }
         public int AmountOfBeers { get; set; } = 1;
-        public bool IsHaveBeer { get; set; } = true;
-
-        public string MoneyMessage;
-
-        public Player(string name)
+        public string MoneyMessage { get; set; } = MoneyFormatter.FormatMoney(100);
+        private static Player _player;
+        private Player()
         {
-            Name = name;
         }
-
+        public static Player GetPlayer()
+        {
+            if (_player == null)
+                _player = new Player();
+            return _player;
+        }
         public void GiveMoney(decimal amount)
         {
             if (amount >= 0 && amount <= AmountOfMoney)
             {
                 AmountOfMoney -= amount;
                 MoneyMessage = $"You have {MoneyFormatter.FormatMoney(AmountOfMoney)}";
+                return;
             }
 
             if (amount < 0)
@@ -46,9 +47,14 @@ namespace Ankh_Morpork_webapp_MVC.Models
             MoneyMessage = $"You have {MoneyFormatter.FormatMoney(AmountOfMoney)}";
         }
 
-        public bool Buy(int numOfBeers)
+        public bool Buy(int numOfBeers, decimal payment)
         {
-            if (numOfBeers > 2 || AmountOfBeers >= 2) return false;
+            if (AmountOfBeers >= 2 || AmountOfBeers + numOfBeers > 2)
+            {
+                AmountOfBeers = 2;
+                return false;
+            }
+            AmountOfMoney -= payment*numOfBeers;
             AmountOfBeers += numOfBeers;
             return true;
         }

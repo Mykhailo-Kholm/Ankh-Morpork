@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ankh_Morpork_game
+namespace Ankh_Morpork_webapp_MVC
 {
-    static class MoneyFormatter
+    public static class MoneyFormatter
     {
         public static string FormatMoney(decimal amount)
         {

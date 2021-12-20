@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Ankh_Morpork_game.Guilds;
 using Ankh_Morpork_webapp_MVC.Data.Resources;
 using Ankh_Morpork_webapp_MVC.Models;
 
@@ -12,7 +13,7 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("Index");
         }
 
         public ActionResult RandomNpc()
@@ -27,7 +28,9 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
                 case 3:
                     return RedirectToAction("FoolsIndex", "Fools");
                 default:
-                    return RedirectToAction("ThievesINdex", "Thieves");
+                    return ThievesGuild.AcceptableNumberOfThefts != 0
+                        ? RedirectToAction("ThievesINdex", "Thieves")
+                        : RedirectToAction("RandomNpc", "Game");
             }
         }
 
@@ -38,7 +41,20 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
 
         public ActionResult NextStep()
         {
-            return View();
+            return View("NextStep");
+        }
+
+        public ActionResult Bar()
+        {
+            return RedirectToAction("BarIndex", "MendedDrum");
+        }
+
+        public ActionResult Restart()
+        {
+            Player.GetPlayer().AmountOfBeers = 1;
+            Player.GetPlayer().AmountOfMoney = 100;
+            Player.GetPlayer().IsAlive = true;
+            return RedirectToAction("Index");
         }
     }
 }

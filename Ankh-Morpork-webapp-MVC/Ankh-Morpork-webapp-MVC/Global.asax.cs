@@ -16,7 +16,11 @@ namespace Ankh_Morpork_webapp_MVC
     {
         protected void Application_Start()
         {
-            //DbContextSeeder.Seed(SingletonDbContext.GetInstance());
+            if (!Database.Exists("DbNpcConnection"))
+            {
+                Database.SetInitializer(new CreateDatabaseIfNotExists<NpcContext>());
+                DbContextSeeder.Seed(SingletonDbContext.GetInstance());
+            }
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

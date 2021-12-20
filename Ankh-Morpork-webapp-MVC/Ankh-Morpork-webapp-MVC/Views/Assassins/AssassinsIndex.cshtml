@@ -1,4 +1,4 @@
-﻿@model Ankh_Morpork_webapp_MVC.ViewModels.MeetingNpcViewModel
+﻿@model Ankh_Morpork_webapp_MVC.ViewModels.MessageViewModel
 @{
     ViewBag.Title = "AssassinsIndex";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -9,11 +9,12 @@
             <img src="~/Content/Images/Assassins/@(Model.ImageUrl)" class="img-thumbnail align-items-md-center"/>
         </div>
         <div class="col-4">
+            @Html.Partial("_InfoView",new ViewDataDictionary(ViewData){{"Money", Model.Money}, {"Beers",Model.Beers}})
             <p class="bg-dark text-white fs-2">
                 @Model.Message
             </p>
-            @Html.ActionLink("Skip", "Skip","Assassins", new{@class= "btn btn-secondary btn-lg" })
-            @Html.ActionLink("Sign a contract!", "Contract", "Assassins", new{@class= "btn btn-secondary btn-lg" })
+            @Html.ActionLink("Skip", "Skip", "Assassins", new {@class = "btn btn-secondary btn-lg"})
+            @Html.ActionLink("Sign a contract!", "Contract", "Assassins", new {@class = "btn btn-secondary btn-lg"})
         </div>
     </div>
 </div>
