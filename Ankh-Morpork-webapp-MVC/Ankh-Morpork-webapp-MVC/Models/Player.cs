@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Ankh_Morpork_game;
-
-namespace Ankh_Morpork_webapp_MVC.Models
+﻿namespace Ankh_Morpork_webapp_MVC.Models
 {
     public class Player
     {
@@ -14,14 +8,9 @@ namespace Ankh_Morpork_webapp_MVC.Models
         public int AmountOfBeers { get; set; } = 1;
         public string MoneyMessage { get; set; } = MoneyFormatter.FormatMoney(100);
         private static Player _player;
-        private Player()
-        {
-        }
         public static Player GetPlayer()
         {
-            if (_player == null)
-                _player = new Player();
-            return _player;
+            return _player ?? (_player = new Player());
         }
         public void GiveMoney(decimal amount)
         {

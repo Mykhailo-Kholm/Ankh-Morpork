@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Ankh_Morpork_webapp_MVC.Models;
+using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using Ankh_Morpork_webapp_MVC.Models;
 
 namespace Ankh_Morpork_webapp_MVC.Data.Resources
 {
@@ -44,7 +41,7 @@ namespace Ankh_Morpork_webapp_MVC.Data.Resources
             context.Fools.AddRange(new List<Fool>(9)
             {
                 new Fool {Name = "Muggins", Fee = 0.5m, ImageUrl = @"1.png"},
-                new Fool {Name = "Gull", Fee = 1, ImageUrl = @"2png"},
+                new Fool {Name = "Gull", Fee = 1, ImageUrl = @"2.png"},
                 new Fool {Name = "Dupe", Fee = 2, ImageUrl = @"3.png"},
                 new Fool {Name = "Butt", Fee = 3, ImageUrl = @"4.png"},
                 new Fool {Name = "Fool", Fee = 5, ImageUrl = @"5.png"},

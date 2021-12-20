@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Ankh_Morpork_game.Abstract;
+﻿using Ankh_Morpork_game.Abstract;
 using Ankh_Morpork_webapp_MVC.Data.IRepository;
-using Ankh_Morpork_webapp_MVC.Models;
+using System.Collections.Generic;
 
 namespace Ankh_Morpork_webapp_MVC.Data.Repository
 {
