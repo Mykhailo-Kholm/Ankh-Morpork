@@ -1,0 +1,18 @@
+﻿@model Ankh_Morpork_webapp_MVC.ViewModels.PlayerViewModel
+@{
+    ViewBag.Title = "Contract";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 align="center">Contract</h2>
+@using (Html.BeginForm("SignContract", "Assassins"))
+{
+    <div class="form-check" align="center">
+        <div class="col-auto">
+            <label class="col-form-label fs-4">Reward</label>
+        </div>
+        @Html.TextBoxFor(p => p.Payment, htmlAttributes:new {@class="field-validation-error"})<br/>
+        @Html.ValidationMessageFor(p=>p.Payment)<br/>
+        <button type="submit" class ="btn btn-primary">Submit</button>
+    </div>
+}

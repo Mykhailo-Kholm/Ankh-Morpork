@@ -1,0 +1,22 @@
+﻿@using Ankh_Morpork_webapp_MVC.Data
+@using Ankh_Morpork_webapp_MVC.Models
+@model Ankh_Morpork_webapp_MVC.Models.Thief
+@{
+    ViewBag.Title = "AssassinsIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-8 align-items-md-center">
+            <img src="~/Content/Images/Thieves/@(Model.ImageUrl)" class="img-thumbnail align-items-md-center" />
+        </div>
+        <div class="col-4">
+            @Html.Partial("_InfoView", new ViewDataDictionary(ViewData) { { "Money", MoneyFormatter.FormatMoney(Player.GetPlayer().AmountOfMoney) }, { "Beers", Player.GetPlayer().AmountOfBeers } })
+            <p class="bg-dark text-white fs-2">
+                Pay 10 bucks or you will be robbed
+            </p>
+            @Html.ActionLink("Skip", "Skip", "Thieves", new { @class = "btn btn-secondary btn-lg" })
+            @Html.ActionLink("Play", "Play", "Thieves", new{id = Model.Id},new { @class = "btn btn-secondary btn-lg" })
+        </div>
+    </div>
+</div>
