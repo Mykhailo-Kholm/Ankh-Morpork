@@ -12,9 +12,17 @@
         </div>
         <div class="col-4">
             @Html.Partial("_InfoView", new ViewDataDictionary(ViewData) { { "Money", MoneyFormatter.FormatMoney(Player.GetPlayer().AmountOfMoney) }, { "Beers", Player.GetPlayer().AmountOfBeers } })
-            <p class="bg-dark text-white fs-2">
-                Pay fee - @MoneyFormatter.FormatMoney(@Model.Fee) or I'll chase you to death
-            </p>
+            @if (Model.Fee != 0)
+                {
+                    <p class="bg-dark text-white fs-2">
+                        Pay fee - @MoneyFormatter.FormatMoney(@Model.Fee) or I'll chase you to death
+                    </p>
+                }
+            else
+            {
+                <p>Why lie? I need a beer!</p>
+            }
+
             @Html.ActionLink("Skip", "Skip", "Beggars", new { @class = "btn btn-secondary btn-lg" })
             @Html.ActionLink("Play", "Play", "Beggars", new{id = Model.Id},new { @class = "btn btn-secondary btn-lg" })
         </div>
