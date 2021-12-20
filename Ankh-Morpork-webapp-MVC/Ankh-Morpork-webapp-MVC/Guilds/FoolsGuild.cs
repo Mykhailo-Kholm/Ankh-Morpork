@@ -1,11 +1,10 @@
-﻿using System;
-using Ankh_Morpork_game.Abstract;
-using System.Collections.Generic;
-using System.Linq;
-using Ankh_Morpork_webapp_MVC.Data;
+﻿using Ankh_Morpork_webapp_MVC.Data;
 using Ankh_Morpork_webapp_MVC.Data.IRepository;
 using Ankh_Morpork_webapp_MVC.Data.Repository;
 using Ankh_Morpork_webapp_MVC.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Ankh_Morpork_game.Guilds
 {

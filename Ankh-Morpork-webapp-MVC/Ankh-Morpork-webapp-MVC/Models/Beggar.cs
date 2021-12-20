@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Web;
-using Ankh_Morpork_game.Abstract;
+﻿using Ankh_Morpork_game.Abstract;
 using Ankh_Morpork_game.Abstract.ChildInterfaces;
+using System.ComponentModel.DataAnnotations;
 
 namespace Ankh_Morpork_webapp_MVC.Models
 {

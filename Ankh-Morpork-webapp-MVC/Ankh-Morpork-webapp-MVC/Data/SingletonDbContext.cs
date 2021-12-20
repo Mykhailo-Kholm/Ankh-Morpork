@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Ankh_Morpork_webapp_MVC.Models;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using Ankh_Morpork_webapp_MVC.Models;
 
 namespace Ankh_Morpork_webapp_MVC.Data
 {

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Ankh_Morpork_game.Guilds;
-using Ankh_Morpork_webapp_MVC.Data.Resources;
+﻿using Ankh_Morpork_game.Guilds;
 using Ankh_Morpork_webapp_MVC.Models;
+using System;
+using System.Web.Mvc;
 
 namespace Ankh_Morpork_webapp_MVC.Controllers
 {

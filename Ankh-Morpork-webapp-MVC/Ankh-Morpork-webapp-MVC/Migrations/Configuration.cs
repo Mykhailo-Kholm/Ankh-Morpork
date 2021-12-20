@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using Ankh_Morpork_webapp_MVC.Models;
+﻿using Ankh_Morpork_webapp_MVC.Models;
+using System.Collections.Generic;
 
 namespace Ankh_Morpork_webapp_MVC.Migrations
 {
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Ankh_Morpork_webapp_MVC.Models.NpcContext>
     {
