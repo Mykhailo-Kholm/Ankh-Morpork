@@ -10,9 +10,9 @@ namespace Ankh_Morpork_webapp_MVC.Controllers
         // GET: Beggars
         public ActionResult BeggarsIndex()
         {
-            if (Player.GetPlayer().AmountOfMoney == 0 || !Player.GetPlayer().IsAlive || Player.GetPlayer().AmountOfBeers ==0)
-                return RedirectToAction("GameOver", "Game");
             var beggar = _beggars.GeneratorOfNPC();
+            if (Player.GetPlayer().AmountOfMoney == 0 || !Player.GetPlayer().IsAlive || (beggar.Fee==0 && Player.GetPlayer().AmountOfBeers==0))
+                return RedirectToAction("GameOver", "Game");
             return View("BeggarsIndex",beggar);
         }
         public ActionResult Skip()
