@@ -10,9 +10,7 @@ namespace Ankh_Morpork_webapp_MVC
             decimal pennies = Math.Round((amount - dollars) * 100); 
             if (pennies == 0)
                 return $"{dollars} AM$";
-            if (dollars == 0)
-                return $"{pennies} pennies";
-            return $"{dollars} AM$ and {pennies} pennies";
+            return dollars == 0 ? $"{pennies} pennies": $"{dollars} AM$ and {pennies} pennies";
         }
     }
 }
